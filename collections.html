@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open SKY — Collections & Pricing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071025,#07172a);color:#f3f7fb;margin:0}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    header img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+    h1{margin:0 0 8px 0}
+    .pricing-panel{display:flex;gap:18px;flex-wrap:wrap}
+    .plan{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;flex:1;min-width:240px}
+    .plan h3{margin-top:0}
+    .pricing-image{max-width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.04);display:block;margin-top:12px}
+    a.back{color:#a7b8d9;display:inline-block;margin-bottom:12px;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back">&larr; Back to marketplace</a>
+    <header>
+      <img src="logo.jpg" alt="Open SKY logo" onerror="this.style.display='none'">
+      <div>
+        <h1>Collections & Pricing</h1>
+        <div style="color:#9fb2d2">Select a plan to view details (demo pricing images below).</div>
+      </div>
+    </header>
+
+    <section class="pricing-panel">
+      <div class="plan">
+        <h3>BASIC</h3>
+        <ul>
+          <li>Daily sentiment reports on top 20 NFT collections.</li>
+          <li>Simple buy/hold/sell signals.</li>
+          <li>24-hour price movement probability.</li>
+        </ul>
+        <div style="font-size:22px;font-weight:700;margin-top:12px">$49 /mo</div>
+      </div>
+      <div class="plan">
+        <h3>PRO</h3>
+        <ul>
+          <li>Real-time sentiment analysis across 100+ collections.</li>
+          <li>Multi-timeframe predictions.</li>
+          <li>Complete whale activity tracking.</li>
+        </ul>
+        <div style="font-size:22px;font-weight:700;margin-top:12px">$99 /mo</div>
+      </div>
+      <div class="plan">
+        <h3>VIP</h3>
+        <ul>
+          <li>Real-time sentiment across entire market.</li>
+          <li>Whale tracking & copy trading bots.</li>
+          <li>Pre-mint prediction scoring.</li>
+        </ul>
+        <div style="font-size:22px;font-weight:700;margin-top:12px">$199 /mo</div>
+      </div>
+    </section>
+
+    <section style="margin-top:26px">
+      <h2>Pricing Image (uploaded)</h2>
+      <!-- pricing.jpg was copied to the folder; replace with your uploaded high-res image if desired -->
+      <img src="pricing.jpg" alt="Pricing" class="pricing-image">
+    </section>
+  </div>
+</body>
+</html>
