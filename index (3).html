@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open SKY — Demo Marketplace</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* (keeping the same theme as before, slightly trimmed) */
+    :root{--primary:#7c3aed;--primary-light:#a78bfa;--dark:#111827;--light:#f9fafb;--gray:#6b7280}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial;background:linear-gradient(180deg,#071025 0%,#07172a 100%);color:var(--light)}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(2,6,23,0.6);backdrop-filter:blur(6px);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .header-grid{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.6px}
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--light);text-decoration:none}
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--light)}
+    .hero{padding:60px 0;display:grid;grid-template-columns:1fr 380px;gap:28px}
+    .nft-card{background:rgba(255,255,255,0.03);padding:14px;border-radius:12px}
+    .nft-image{height:260px;border-radius:8px;background:linear-gradient(45deg,var(--primary),#00b4d8);display:flex;align-items:center;justify-content:center;font-size:48px}
+    .section{padding:60px 0}
+    footer{padding:40px 0;color:var(--gray)}
+    /* responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}nav ul{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-grid">
+      <div class="brand">
+        <!-- logo.jpg was copied into the demo folder. Upload your own logo.jpg to the same folder in your repo to replace it -->
+        <img src="logo.jpg" alt="Open SKY logo" id="site-logo" onerror="this.style.display='none'">
+        <div>
+          <h1>Open <strong style="color:var(--primary)">SKY</strong></h1>
+          <div style="font-size:12px;color:var(--gray)">AI NFT Marketplace — Demo</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:20px">
+        <nav>
+          <ul>
+            <li><a href="#" id="marketplace-link">Marketplace</a></li>
+            <li><a href="collections.html" id="collections-link">Collections</a></li>
+            <li><a href="#mint-section" id="create-link">Create</a></li>
+          </ul>
+        </nav>
+        <div class="actions">
+          <button class="btn btn-outline" id="signup-btn">Sign Up</button>
+          <button class="btn btn-outline" id="connect-wallet">Connect Wallet</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h2 style="font-size:2rem;margin-bottom:8px">Discover, Collect & Trade NFTs with AI</h2>
+        <p style="color:var(--gray);max-width:600px">Open SKY (demo) — a classroom-ready UI showcasing wallet connect, bidding, collections, and minting flows. Nothing is on-chain; interactions are simulated for presentation.</p>
+        <div style="margin-top:18px;display:flex;gap:12px">
+          <button class="btn btn-primary" id="explore-btn">Explore Marketplace</button>
+          <button class="btn btn-outline" id="how-it-works">How it works</button>
+        </div>
+      </div>
+
+      <aside style="align-self:start">
+        <div class="nft-card">
+          <div class="nft-image"><i class="fas fa-robot"></i></div>
+          <div style="padding-top:12px">
+            <h3 style="margin:0">AI Genesis #042</h3>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+              <div><div style="font-size:12px;color:var(--gray)">Current Bid</div><div style="font-weight:700">2.45 ETH</div></div>
+              <div><button class="btn btn-primary" data-action="bid" data-id="ai-genesis-042">Place Bid</button></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="marketplace-grid">
+      <h3>Trending Collections</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:18px">
+        <!-- sample cards (same as before) -->
+        <div class="nft-card"><div class="nft-image" style="background:linear-gradient(45deg,#8b5cf6,#ec4899)"><i class="fas fa-crown"></i></div><div style="padding-top:10px"><strong>Digital Monarch #117</strong><div style="display:flex;justify-content:space-between;margin-top:8px"><span>1.25 ETH</span><button class="btn btn-primary" data-action="buy" data-id="digital-monarch-117">Buy</button></div></div></div>
+        <div class="nft-card"><div class="nft-image" style="background:linear-gradient(45deg,#10b981,#3b82f6)"><i class="fas fa-feather-alt"></i></div><div style="padding-top:10px"><strong>Ethereal Wings #056</strong><div style="display:flex;justify-content:space-between;margin-top:8px"><span>0.89 ETH</span><button class="btn btn-primary" data-action="buy" data-id="ethereal-wings-056">Buy</button></div></div></div>
+        <div class="nft-card"><div class="nft-image" style="background:linear-gradient(45deg,#f59e0b,#ef4444)"><i class="fas fa-dragon"></i></div><div style="padding-top:10px"><strong>Crypto Dragon #512</strong><div style="display:flex;justify-content:space-between;margin-top:8px"><span>3.72 ETH</span><button class="btn btn-primary" data-action="bid" data-id="crypto-dragon-512">Place Bid</button></div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="mint-section">
+      <h3>Mint (Demo)</h3>
+      <p style="color:var(--gray)">Upload image, enter name and price — this will simulate minting and show a success modal.</p>
+      <form id="mint-form" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:900px">
+        <input placeholder="NFT name" id="nft-name" style="padding:10px;border-radius:8px;background:rgba(255,255,255,0.03);border:0;color:var(--light)">
+        <input placeholder="Price (ETH)" id="nft-price" type="number" style="padding:10px;border-radius:8px;background:rgba(255,255,255,0.03);border:0;color:var(--light)">
+        <div style="grid-column:1/-1">
+          <label style="display:block;margin-bottom:6px;color:var(--gray)">Image</label>
+          <input type="file" id="nft-image">
+        </div>
+        <div style="grid-column:1/-1">
+          <button class="btn btn-primary" type="submit" style="width:100%">Mint NFT (Demo)</button>
+        </div>
+      </form>
+    </section>
+
+    <footer class="section">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div><strong>Open SKY</strong> — Demo</div>
+        <div style="color:var(--gray)">Made for classroom presentation</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Simple modals reused from previous demo -->
+  <div id="purchase-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:80">
+    <div style="background:#0b1220;padding:18px;border-radius:12px;max-width:520px;width:90%">
+      <div style="display:flex;justify-content:space-between;align-items:center"><strong id="modal-title">Complete Purchase</strong><button id="close-modal" style="background:none;border:0;color:var(--light)">×</button></div>
+      <div style="margin-top:12px" id="modal-body">...</div>
+      <div style="margin-top:14px;text-align:right"><button id="cancel-purchase" class="btn btn-outline">Cancel</button> <button id="confirm-purchase" class="btn btn-primary">Confirm</button></div>
+    </div>
+  </div>
+
+  <div id="success-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:90">
+    <div style="background:#0b1220;padding:18px;border-radius:12px;max-width:360px;width:90%"><div id="success-text">Done</div><div style="text-align:right;margin-top:12px"><button id="close-success" class="btn btn-primary">OK</button></div></div>
+  </div>
+
+  <script>
+    // Basic demo interactions (same behavior as before)
+    document.getElementById('connect-wallet').addEventListener('click', ()=>{
+      const addr = prompt('Paste a demo wallet address (or leave blank to auto-generate):');
+      const address = addr || ('0xDEMO'+Math.floor(Math.random()*1e8).toString(16));
+      document.getElementById('connect-wallet').textContent = 'Connected';
+      localStorage.setItem('demo_wallet', address);
+      document.getElementById('success-text').textContent = `Wallet ${address.slice(0,6)}...${address.slice(-4)} connected (demo).`;
+      document.getElementById('success-modal').style.display = 'flex';
+    });
+    document.getElementById('close-success').addEventListener('click', ()=>document.getElementById('success-modal').style.display='none');
+    document.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click', (e)=>{
+      const action = btn.getAttribute('data-action');
+      const card = btn.closest('.nft-card');
+      const name = card.querySelector('strong, h3').innerText;
+      const price = card.querySelector('.price-value') ? card.querySelector('.price-value').innerText : card.querySelector('span') ? card.querySelector('span').innerText : '';
+      const modal = document.getElementById('purchase-modal');
+      document.getElementById('modal-body').innerHTML = `You are about to <strong>${action}</strong> <br><strong>${name}</strong> ${price ? 'for ' + price : ''} <br><br> (demo: no real transaction)`;
+      modal.style.display = 'flex';
+    }));
+    document.getElementById('close-modal').addEventListener('click', ()=>document.getElementById('purchase-modal').style.display='none');
+    document.getElementById('confirm-purchase').addEventListener('click', ()=>{
+      document.getElementById('success-text').textContent = 'Action completed (demo).';
+      document.getElementById('purchase-modal').style.display='none';
+      document.getElementById('success-modal').style.display='flex';
+    });
+
+    // Mint form (demo)
+    document.getElementById('mint-form').addEventListener('submit', (e)=>{ e.preventDefault(); document.getElementById('success-text').textContent = 'Mint simulated (demo).'; document.getElementById('success-modal').style.display='flex'; document.getElementById('mint-form').reset(); });
+
+    // Explore button scroll
+    document.getElementById('explore-btn').addEventListener('click', ()=>document.getElementById('marketplace-grid').scrollIntoView({behavior:'smooth'}));
+
+  </script>
+</body>
+</html>
